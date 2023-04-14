@@ -11,5 +11,26 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
+  },
+  css:{
+    preprocessorOptions:{
+      less:{
+        additionalData:`
+        @import "@/assets/styles/variables.less";
+        @import "@/assets/styles/mixins.less";
+        `
+      }
+    }
   }
+  // css: {
+  //   // https://cn.vitejs.dev/config/#css-preprocessoroptions
+  //   preprocessorOptions: {
+  //     less: {
+  //       additionalData: `
+  //         @import "@/assets/styles/variables.less";
+  //         @import "@/assets/styles/mixins.less";
+  //       `,
+  //     },
+  //   },
+  // },
 })
