@@ -52,3 +52,5 @@ export const XtxDialog = Dialog;
 export const XtxTabs = Tabs;
 export const XtxTabPane = TabPane;
 export const XtxInfiniteLoad = InfiniteLoad;
+
+export * from "./Message/index.vue"

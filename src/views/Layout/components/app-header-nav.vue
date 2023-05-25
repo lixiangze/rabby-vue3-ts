@@ -3,6 +3,8 @@ import { RouterLink } from "vue-router";
 import useStore from "@/store";  
 // import { XtxSkeleton,XtxButton } from "@/components/XtxUI";
 const {Home} = useStore()
+console.log(Home.categoryList);
+
 </script>
 
 <template>
@@ -13,8 +15,7 @@ const {Home} = useStore()
     
     <template v-if="Home.categoryList.length>0">
       <li v-for="item in Home.categoryList" :key="item.id">
-        <a href="#">{{item.name}}</a>
-       
+       <RouterLink :to="`/category/${item.id}`">{{item.name}}</RouterLink>
       </li>
      
     </template>

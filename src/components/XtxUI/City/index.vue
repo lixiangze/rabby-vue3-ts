@@ -28,7 +28,7 @@
 <script setup lang="ts">
 import { onMounted, ref, reactive, watch } from "vue";
 import axios from "axios";
-
+import {jsonData} from "./jsonDataFile"
 export interface ChangeResult {
   provinceCode: string;
   provinceName: string;
@@ -62,14 +62,18 @@ function toggleActive() {
 const chinaData = ref<AreaList[]>([]);
 let cacheData: AreaList[] = []; // 缓存的数据列表
 function loadCityData() {
-  axios({
-    url: "https://yjy-oss-files.oss-cn-zhangjiakou.aliyuncs.com/tuxian/area.json",
-    method: "GET",
-  }).then((res) => {
-    chinaData.value = res.data;
+  // axios({
+  //   url: "https://yjy-oss-files.oss-cn-zhangjiakou.aliyuncs.com/tuxian/area.json",
+  //   method: "GET",
+  // }).then((res) => {
+  //   console.log(111111,res);
+    
+    // chinaData.value = res.data;
+    chinaData.value = jsonData
     // 为了将来把省列表重新交给chinaData 要求把省列表数据提前缓存一份
-    cacheData = res.data;
-  });
+    // cacheData = res.data;
+    cacheData = jsonData
+  // });
 }
 onMounted(() => {
   loadCityData();

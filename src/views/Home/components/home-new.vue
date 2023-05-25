@@ -7,7 +7,7 @@ const {Home} = useStore()
 
 const {target} = useObserver(Home.getNewList)
 
-console.log(111,Home.newList)
+// console.log(111,Home.newList)
 </script>
 
 <template>
@@ -17,7 +17,7 @@ console.log(111,Home.newList)
       <!-- 面板内容 -->
       <ul class="goods-list" v-if="Home.newList.length>0">
         <li v-for="item in Home.newList" :key="item.id">
-          <RouterLink to="/">
+          <RouterLink :to="`/goods/${item.id}`">
             <img
               :src="item.picture"
               alt=""

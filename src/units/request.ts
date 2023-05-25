@@ -3,6 +3,7 @@ import axios, { type Method } from 'axios'
 // 创建 axios 实例
 const instance = axios.create({
   baseURL: 'http://pcapi-xiaotuxian-front-devtest.itheima.net/',
+  // baseURL: 'http://apipc-xiaotuxian-front.itheima.net/',
   timeout: 50000
 })
 

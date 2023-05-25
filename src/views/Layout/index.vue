@@ -8,7 +8,7 @@ import appHeaderSticky from './components/app-header-sticky.vue';
 // import home from "@/views/Home/index.vue"
 const {Home} = useStore()
 onMounted(()=>{
-  console.log(Home.getALLCategory())
+  // console.log(Home.getALLCategory())
 })
 </script>
 
@@ -18,7 +18,7 @@ onMounted(()=>{
    <appHeaderSticky></appHeaderSticky>
    <main class="app-body">
     <!-- 路由出口 -->
-    <RouterView></RouterView>
+    <RouterView :key="$route.fullPath"></RouterView>
   </main>
    <appFooter />
    

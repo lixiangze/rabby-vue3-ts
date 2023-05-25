@@ -30,6 +30,7 @@ export interface Sku {
   price: string;
   oldPrice: string;
   inventory: number;
+  picture: string;
   specs: SkuSpec[];
 }
 

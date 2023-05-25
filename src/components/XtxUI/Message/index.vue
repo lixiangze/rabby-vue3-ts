@@ -74,6 +74,9 @@ onMounted(() => {
   background: #f5f5f5;
   color: #999;
   border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   i {
     margin-right: 4px;
     vertical-align: middle;

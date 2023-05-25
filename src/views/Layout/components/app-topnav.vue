@@ -1,15 +1,26 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import useStore from '@/store';
+import { storeToRefs } from 'pinia';
+
+const {member} = useStore()
+const {profile} = storeToRefs(member)
+</script>
 
 <template>
   <nav class="app-topnav">
     <div class="container">
       <ul>
-        <li>
-          <a href="javascript:;"><i class="iconfont icon-user"></i>黑马先锋</a>
-        </li>
-        <li><a href="javascript:;">退出登录</a></li>
-        <li><a href="javascript:;">请先登录</a></li>
-        <li><a href="javascript:;">免费注册</a></li>
+        <template v-if="member.isLogin">
+          <li>
+            <a href="javascript:;"><i class="iconfont icon-user"></i>{{profile.nickname||profile.mobile||profile.account}}</a>
+          </li>
+          <li><RouterLink href="javascript:;"  to="/login" >退出登录</RouterLink></li>
+        </template>
+        <template v-else>
+          <li><RouterLink to="/login">请先登录</RouterLink></li>
+          <li><a href="javascript:;">免费注册</a></li>
+        </template>
+        
         <li><a href="javascript:;">我的订单</a></li>
         <li><a href="javascript:;">会员中心</a></li>
         <li><a href="javascript:;">帮助中心</a></li>

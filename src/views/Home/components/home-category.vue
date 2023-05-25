@@ -4,15 +4,18 @@ import useStore from "@/store";
 import { computed } from "vue";
 import { RouterLink } from "vue-router";
 const {Home} = useStore();
+
 const leftCategoryList = computed(()=>{
-    return Home.categoryList.map((item) =>({
+  console.log(222222,Home)
+    return Home.categoryList.map((item) => ({
+
        id:item.id,
        name:item.name,
        children:item.children.slice(0,2),
        goods:item.goods
     }))
 })
-console.log(leftCategoryList);
+console.log(222,leftCategoryList);
 
 // return Home.categoryList.map((item) => ({
 //     id: item.id,
@@ -26,7 +29,7 @@ console.log(leftCategoryList);
   <div class="home-category">
     <ul class="menu" v-if="leftCategoryList.length>0">
       <li v-for="item in leftCategoryList" :key="item.id">
-        <RouterLink to="/">{{ item.name }}</RouterLink>
+        <RouterLink :to="`/category/${item.id}`">{{item.name}}</RouterLink>
         <RouterLink to="/" v-for="i in item.children" :key="i.id">{{ i.name }}</RouterLink>
         <!-- 弹层layer位置 -->
         <!-- 弹层layer位置 -->
